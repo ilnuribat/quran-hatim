@@ -44,7 +44,7 @@ bot.command('/new', async (ctx) => {
 
     await ctx.reply(`{Тестовый режим}
       Страница №${page}`);
-    await ctx.replyWithPhoto(`https://raw.githubusercontent.com/ilnuribat/quran-hatim/master/res/pngs-${pagePad}.png`);
+    await ctx.replyWithPhoto(`https://raw.githubusercontent.com/ilnuribat/quran-resources/master/01/pngs-${pagePad}.png`);
 
 
     await ctx.reply(`{Тестовый режим}
