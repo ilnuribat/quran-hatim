@@ -17,6 +17,7 @@
     "dotenv": "^4.0.0",
     "lodash": "^4.17.4",
     "moment": "^2.20.1",
+    "nodemon": "^1.17.3",
     "pg": "^7.4.1",
     "sequelize": "^4.31.2",
     "sequelize-cli": "^4.0.0",
