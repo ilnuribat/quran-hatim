@@ -5,7 +5,7 @@ services:
     build: 
       context: .
     network_mode: host
-    command: ["npm", "run", "watch"]
+    command: ["bash", "-c", "npm run migrations && npm start"]
     volumes:
       - './src:/app/src'
   db:

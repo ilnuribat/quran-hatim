@@ -10,4 +10,4 @@ COPY src /app/src
 
 COPY .env /app/.env
 
-CMD [ "bash", "-c", "npm start" ]
+CMD [ "bash", "-c", "npm run migrations && npm start" ]
