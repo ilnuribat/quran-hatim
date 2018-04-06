@@ -1,6 +1,6 @@
-import moment from 'moment';
+const moment = require('moment');
 
-export async function commitHatim(userId) {
+exports.commitHatim = async function (userId) {
   await sequelize.transaction(async (transaction) => {
     const page = await Hatim.findOne({
       where: {
@@ -16,9 +16,9 @@ export async function commitHatim(userId) {
 
     return page.update({ closedAt: moment() }, { transaction });
   });
-}
+};
 
-export async function cancelHatim(userId) {
+exports.cancelHatim = async function (userId) {
   await sequelize.transaction(async (transaction) => {
     const page = await Hatim.findOne({
       where: {
@@ -34,4 +34,4 @@ export async function cancelHatim(userId) {
 
     return page.update({ assignedAt: null, userId: null }, { transaction });
   });
-}
+};

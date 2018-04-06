@@ -1,6 +1,6 @@
-import Telegraf from 'telegraf';
-import getSequelize from './sequelize/storage.mjs';
-import initModels from './sequelize/index.mjs';
+const Telegraf = require('telegraf');
+const getSequelize = require('./sequelize/storage.js');
+const initModels = require('./sequelize/index.js');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const { telegram } = bot;
@@ -8,6 +8,19 @@ const { telegram } = bot;
 async function createUser({ telegramId, name = '' }) {
   return User.create({ telegramId, name });
 }
+
+async function commit(ctx) {
+}
+
+async function cancel(ctx) {
+}
+
+async function newPage(ctx) {
+}
+
+bot.on('callback_query', async (ctx) => {
+  
+});
 
 bot.start(async (ctx) => {
   const { id: telegramId, username: name } = ctx.from;
@@ -42,15 +55,23 @@ bot.command('/new', async (ctx) => {
     const { id: userId } = ctx.state.user;
     const { pagePad, page } = await Hatim.givePageToUser(userId);
 
-    await ctx.reply(`{Тестовый режим}
-      Страница №${page}`);
     await ctx.replyWithPhoto(`https://raw.githubusercontent.com/ilnuribat/quran-resources/master/01/pngs-${pagePad}.png`);
 
 
     await ctx.reply(`{Тестовый режим}
-      Отмена страницы: /cancel`);
-    return ctx.reply(`{Тестовй режим}
-      Закрыть страницу: /commit`);
+      Страница №${page}`, {
+      reply_markup: {
+        inline_keyboard: [[
+          {
+            text: 'Заркыть страницу',
+            callback_data: 'commit',
+          }, {
+            text: 'Отменить',
+            callback_data: 'commit',
+          },
+        ]],
+      },
+    });
   } catch (err) {
     console.log(err);
     return ctx.reply(`Ошибка сервера, ${err.message}`);

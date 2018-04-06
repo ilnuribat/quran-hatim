@@ -1,7 +1,7 @@
-import _ from 'lodash';
-import moment from 'moment';
+const _ = require('lodash');
+const moment = require('moment');
 
-export async function createPool(transaction) {
+const createPool = async function (transaction) {
   const hatimNumber = await Hatim.findOne({
     order: [['number', 'DESC']],
   }, { transaction });
@@ -13,7 +13,7 @@ export async function createPool(transaction) {
   }));
 
   await Hatim.bulkCreate(pages, { transaction });
-}
+};
 
 async function getFreePage(transaction) {
   return Hatim.findOne({
@@ -32,7 +32,7 @@ async function getFreePage(transaction) {
   });
 }
 
-export async function givePageToUser(userId) {
+exports.givePageToUser = async function (userId) {
   let page;
 
   await sequelize.transaction(async (transaction) => {
@@ -79,4 +79,6 @@ export async function givePageToUser(userId) {
   });
 
   return page;
-}
+};
+
+exports.createPool = createPool;

@@ -1,7 +1,7 @@
-import schema from './schema.mjs';
-import * as classMethods from './class-methods.mjs';
+const schema = require('./schema.js');
+const classMethods = require('./class-methods.js');
 
-export default function (sequelize) {
+module.exports = function (sequelize) {
   const Hatim = sequelize.define('Hatim', schema, {
     freezeTableName: true,
     name: {
@@ -12,4 +12,4 @@ export default function (sequelize) {
   });
 
   Object.assign(Hatim, classMethods);
-}
+};

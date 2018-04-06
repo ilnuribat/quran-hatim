@@ -1,7 +1,7 @@
-import Sequelize from 'sequelize';
-import moment from 'moment';
+const Sequelize = require('sequelize');
+const moment = require('moment');
 
-export default {
+module.exports = {
   number: {
     type: Sequelize.INTEGER,
     allowNull: false,

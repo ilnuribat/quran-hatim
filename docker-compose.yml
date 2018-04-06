@@ -1,13 +1,13 @@
 version: '3'
 
 services:
-  bot:
-    build: 
-      context: .
-    network_mode: host
-    command: ["bash", "-c", "npm run migrations && npm start"]
-    volumes:
-      - './src:/app/src'
+  # bot:
+  #   build: 
+  #     context: .
+  #   network_mode: host
+  #   command: ["bash", "-c", "npm run migrations && npm run watch"]
+  #   volumes:
+  #     - './src:/app/src'
   db:
     image: 'postgres:9.6'
     ports:

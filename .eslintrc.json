@@ -4,5 +4,8 @@
         "Hatim": true,
         "User": true,
         "sequelize": true
+    },
+    "rules": {
+        "func-names": "off"
     }
 }

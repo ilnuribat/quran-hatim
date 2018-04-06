@@ -1,7 +1,7 @@
-import Hatim from './models/Hatim/index.mjs';
-import User from './models/User/index.mjs';
+const Hatim = require('./models/Hatim');
+const User = require('./models/User');
 
-export default function (sequelize) {
+module.exports = function (sequelize) {
   User(sequelize);
   Hatim(sequelize);
 
@@ -12,4 +12,4 @@ export default function (sequelize) {
   });
 
   return sequelize;
-}
+};

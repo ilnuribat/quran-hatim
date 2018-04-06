@@ -1,6 +1,6 @@
-import Sequelize from 'sequelize';
+const Sequelize = require('sequelize');
 
-export default {
+module.exports = {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,

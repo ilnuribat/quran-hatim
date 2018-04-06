@@ -1,9 +1,9 @@
-import dotenv from 'dotenv';
-import Sequelize from 'sequelize';
+const dotenv = require('dotenv');
+const Sequelize = require('sequelize');
 
 dotenv.config();
 
-export default function () {
+module.exports = function () {
   return new Sequelize(
     process.env.POSTGRES_DB,
     process.env.POSTGRES_USER,
@@ -15,4 +15,4 @@ export default function () {
       },
     },
   );
-}
+};
